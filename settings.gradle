@@ -1,0 +1,2 @@
+rootProject.name = "热我相机"
+include ':app', ':FlycoTabLayout_lib', ':weewa_lib'

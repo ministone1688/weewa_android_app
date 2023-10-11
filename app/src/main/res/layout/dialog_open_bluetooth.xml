@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bluetooth_dialog_open_bg"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:padding="10dp"
+        android:src="@mipmap/dialog_close" />
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@mipmap/dialog_blue_open_logo" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="27dp"
+        android:text="@string/bluetooth_no_open"
+        android:textColor="#ff272727"
+        android:textSize="24sp"
+        android:textFontWeight="500"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="27dp"
+        android:layout_marginLeft="42dp"
+        android:layout_marginRight="42dp"
+        android:gravity="center"
+        android:text="@string/bluetooth_tips"
+        android:textColor="#ff272727"
+        android:textSize="16sp"
+        android:textFontWeight="400"
+        />
+
+    <View android:layout_height="0dp"
+        android:layout_width="1dp"
+        android:layout_weight="1"
+        />
+
+    <TextView
+        android:id="@+id/open_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@drawable/bluetooth_dialog_open_btn"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="64dp"
+        android:gravity="center"
+        android:text="@string/bluetooth_setting"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textFontWeight="400"
+        />
+
+</LinearLayout>

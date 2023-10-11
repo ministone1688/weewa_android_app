@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?><!-- 第二种大图样式, 用在推荐列表里 -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/video_edit_layout"
+    android:layout_width="match_parent"
+    android:layout_height="60dp">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/title_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tab_download"
+            style="@style/tabButtonStyle"
+            android:drawableTop="@mipmap/video_edit_download"
+            android:text="@string/video_tab_download" />
+
+        <TextView
+            android:id="@+id/tab_share"
+            style="@style/tabButtonStyle"
+            android:drawableTop="@mipmap/video_edit_share"
+            android:text="@string/video_tab_share"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tab_upload"
+            style="@style/tabButtonStyle"
+            android:drawableTop="@mipmap/video_edit_upload"
+            android:text="@string/video_tab_upload" />
+
+        <TextView
+            android:id="@+id/tab_rename"
+            style="@style/tabButtonStyle"
+            android:drawableTop="@mipmap/video_edit_rename"
+            android:text="@string/video_tab_rename"
+            android:visibility="gone" />
+
+
+        <TextView
+            android:id="@+id/tab_delete"
+            style="@style/tabButtonStyle"
+            android:drawableTop="@mipmap/video_edit_delete"
+            android:text="@string/video_tab_delete" />
+
+
+    </LinearLayout>
+
+</FrameLayout>

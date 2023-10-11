@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.xh.hotme">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--Android12 的蓝牙权限 如果您的应用与已配对的蓝牙设备通信或者获取当前手机蓝牙是否打开-->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <!--Android12 的蓝牙权限 如果您的应用查找蓝牙设备（如蓝牙低功耗 (BLE) 外围设备）-->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <!--Android12 的蓝牙权限 如果您的应用使当前设备可被其他蓝牙设备检测到-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.LOCAL_MAC_ADDRESS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.GET_TOP_ACTIVITY_INFO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <application
+        android:name=".HotmeApplication"
+        android:allowBackup="false"
+        android:appComponentFactory="ssss"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
+        tools:replace="android:appComponentFactory,android:allowBackup"
+        tools:ignore="UnusedAttribute"
+        android:networkSecurityConfig="@xml/network_security_config"
+        >
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="" />
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="" />
+
+        <meta-data
+            android:name="TEST_MODE"
+            android:value="${TEST_MODE}" />
+
+        <activity
+            android:name="com.xh.hotme.SplashActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="um.649abce2a1a164591b3c5ef7" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.xh.hotme.MainActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true">
+
+        </activity>
+
+        <activity
+            android:name="com.xh.hotme.bluetooth.BlueTestActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true">
+        </activity>
+
+
+        <activity
+            android:name="com.xh.hotme.camera.CameraInfoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.account.MobileLoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.lay.PhotoSetActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.setting.SettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+        <activity
+            android:name="com.xh.hotme.setting.AboutMeActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.setting.UserProviteActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.setting.ProfileActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.setting.ContactUsActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.widget.imagepicker.cropimage.CropImage"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name="com.xh.hotme.widget.imagepicker.ImagePickerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.setting.FeedBackActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.camera.CameraRunningInfoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.camera.PlayerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:launchMode="singleTask"
+            android:exported="false"/>
+
+
+        <activity
+            android:name="com.xh.hotme.camera.VideoPlayActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:screenOrientation="landscape"
+            android:launchMode="singleTask"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.softap.SoftApDeviceListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.softap.CameraSoftApActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.softap.CameraSoftApInfoActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+
+        <activity
+            android:name="com.xh.hotme.active.MyDeviceActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.active.MobileActiveLoginActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.device.ConnectActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.active.DeviceOnOffActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.account.SetNicknameActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+        <activity
+            android:name="com.xh.hotme.account.MobileViewActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+        <activity
+            android:name="com.xh.hotme.account.DeleteUserActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.active.PowerDeviceListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.video.TransferFilesActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+
+        <activity
+            android:name="com.xh.hotme.active.ActiveListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.camera.IjkPlayerActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+        <activity
+            android:name="com.xh.hotme.camera.CameraVideoListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.camera.CameraVideoDetailListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.camera.CameraVideoFilterListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.softap.CameraNetworkSettingActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="false"/>
+
+        <activity
+            android:name="com.xh.hotme.lay.CameraListActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.lay.PushLiveActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.lay.PushSetAcitivty"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+            android:name="com.xh.hotme.lay.WeburlActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+            android:exported="true"/>
+
+        <activity
+        android:name="com.xh.hotme.lay.LiveListActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:exported="true"/>
+
+        <activity
+        android:name="com.xh.hotme.lay.LiveTaskAddActivity"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        android:exported="true"/>
+
+        <!-- 适配android N 的文件系统，authorities 中注意替换您的包名，包名+".fileprovider" -->
+        <provider
+            android:name="com.xh.hotme.provider.HotmeFileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/hotme_file_path"
+                tools:replace="android:resource" />
+        </provider>
+
+    </application>
+
+</manifest>

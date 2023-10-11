@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_gray_light"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_include_header" android:id="@+id/title_bar"/>
+
+    <LinearLayout
+        android:paddingTop="20dp"
+        android:paddingLeft="30dp"
+        android:paddingRight="50dp"
+        android:paddingBottom="20dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginBottom="10dp"
+            android:text="默认"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:button="@drawable/base_checkbox_icon_selector"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:background="@drawable/bg_orange_raduis5"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <ImageView
+                android:src="@mipmap/xm4"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <ImageView
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/xm5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"/>
+
+            <TextView
+                android:text="热我精彩视频小程序"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:paddingLeft="10dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
+        </RelativeLayout>
+
+        <TextView
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:text="您还可以直播到"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/gray"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></TextView>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:button="@drawable/base_checkbox_icon_selector"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+
+            <LinearLayout
+                android:layout_alignParentRight="true"
+                android:id="@+id/push_douyin"
+                android:background="@drawable/bg_white_raduis5"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:layout_marginLeft="40dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@mipmap/douyin"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:text="抖音推流"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:button="@drawable/base_checkbox_icon_selector"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:id="@+id/push_kuaishou"
+                android:background="@drawable/bg_white_raduis5"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@mipmap/kuaishou"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:text="快手推流"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:button="@drawable/base_checkbox_icon_selector"
+                android:layout_marginTop="10dp"
+                android:layout_alignParentLeft="true"
+                android:layout_width="36dp"
+                android:layout_height="36dp"/>
+            <LinearLayout
+                android:layout_marginLeft="40dp"
+                android:id="@+id/push_shipinhao"
+                android:background="@drawable/bg_white_raduis5"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:src="@mipmap/shipinhao"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+
+                <TextView
+                    android:text="视频号推流"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:paddingLeft="10dp"
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <CheckBox
+            android:button="@drawable/base_checkbox_icon_selector"
+            android:layout_marginTop="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_width="36dp"
+            android:layout_height="36dp"/>
+        <LinearLayout
+            android:layout_marginLeft="40dp"
+            android:id="@+id/push_other"
+            android:background="@drawable/bg_white_raduis5"
+            android:orientation="vertical"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/xm1"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/xm2"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+                <ImageView
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:src="@mipmap/xm3"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:text="青草园，我是球星，小球迷推流"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"/>
+
+        </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

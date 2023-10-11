@@ -1,0 +1,53 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/device_list_item_root"
+    android:layout_width="340dp"
+    android:layout_height="390dp"
+    android:background="@drawable/device_fragment_no_device_item_bg"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:src="@mipmap/home_device_no" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:gravity="left"
+            android:text="@string/home_camera_no_found"
+            android:textColor="#ffBFBFBF"
+            android:textFontWeight="500"
+            android:textSize="20sp" />
+
+
+
+        <Button
+            android:id="@+id/btn_device_add"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="36dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/device_fragment_no_device_item_btn_add"
+            android:gravity="center"
+            android:text="@string/device_add"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textFontWeight="700"/>
+    </LinearLayout>
+</FrameLayout>

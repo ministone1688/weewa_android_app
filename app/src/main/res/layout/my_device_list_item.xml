@@ -1,0 +1,59 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/device_list_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:layout_marginStart="30dp"
+    android:layout_marginEnd="30dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv_device_img"
+        android:layout_width="62dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/device_weewa" />
+
+    <TextView
+        android:id="@+id/tv_device_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_gravity="center_vertical"
+        android:gravity="left"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/home_title"
+        android:textColor="@color/text_black"
+        android:textFontWeight="500"
+        android:textSize="16sp"
+        tools:text="@string/home_title"/>
+
+    <TextView
+        android:id="@+id/tv_unbind"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:layout_gravity="center_vertical"
+        android:gravity="left"
+        android:text="@string/device_unbind"
+        android:textColor="#F16C2F"
+        android:textFontWeight="500"
+        android:textSize="16sp"
+        tools:text="@string/device_unbind"/>
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/me_fragment_arraw" />
+
+
+</LinearLayout>

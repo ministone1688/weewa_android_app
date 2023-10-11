@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_include_header" android:id="@+id/title_bar"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/photo_select"
+            android:padding="20dp"
+            android:background="@drawable/border_bottom_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/ly_push_curname"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+            <TextView
+                android:layout_alignParentEnd="true"
+                android:id="@+id/photo_name"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp16"
+                android:text="热我相机"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:padding="20dp"
+            android:background="@drawable/border_bottom_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:background="@color/white"
+                android:hint="@string/ly_push_address"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></EditText>
+
+            <TextView
+                android:layout_alignParentEnd="true"
+                android:id="@+id/ly_push_tips"
+                android:textColor="@color/red"
+                android:textSize="@dimen/sp16"
+                android:text="@string/ly_push_tips"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:padding="20dp"
+            android:background="@drawable/border_bottom_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:background="@color/white"
+                android:hint="@string/ly_push_mishi"
+                android:textSize="@dimen/sp16"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></EditText>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:padding="20dp"
+            android:background="@drawable/border_bottom_gray"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:text="@string/ly_push_jieshuo"
+                android:textSize="@dimen/sp16"
+                android:textColor="@color/black"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+            <com.xh.hotme.widget.SwitchButtonO
+                android:layout_alignParentEnd="true"
+                android:id="@+id/sb_fourG"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_marginTop="100dp"
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/login_btn_background"
+            android:gravity="center"
+            android:text="@string/btn_confirm"
+            android:textFontWeight="400"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

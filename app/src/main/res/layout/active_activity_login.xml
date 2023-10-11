@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_include_header" />
+
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="34dp"
+            android:text="@string/mobile"
+            android:textColor="#ff3D3D3D"
+            android:textFontWeight="400"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_mobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/mobile"
+            android:textColor="#ff3D3D3D"
+            android:textFontWeight="700"
+            android:textSize="36sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginLeft="39dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginRight="36dp"
+            android:background="@drawable/login_view_edit_bg"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/et_sms_code"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/login_hint_input_sms"
+                android:inputType="textPassword"
+                android:maxLength="16"
+                android:maxLines="1"
+                android:selectAllOnFocus="true"
+                android:textColor="@color/login_dialog_edit_text"
+                android:textColorHint="@color/login_dialog_edit_hint"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_login_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="30dp"
+            android:text="@string/login_tip"
+            android:textColor="#ff999999"
+            android:textFontWeight="400"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/btn_loginSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/button_height"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="27dp"
+        android:background="@drawable/login_btn_background"
+        android:gravity="center"
+        android:paddingLeft="124dp"
+        android:paddingRight="124dp"
+        android:text="@string/login_btn_login"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="27dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="登录或注册即代表同意"
+            android:textColor="@color/text_black_CC"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/user_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《用户协议》"
+            android:textColor="@color/text_orange"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="及"
+            android:textColor="@color/text_black_CC"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/privacy_agreement"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《隐私政策》"
+            android:textColor="@color/text_orange"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

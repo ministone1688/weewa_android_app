@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  圆角textview -->
+    <declare-styleable name="Leto_RoundTextView">
+        <attr name="leto_rv_backgroundColor" />
+        <attr name="leto_rv_backgroundPressColor" />
+        <attr name="leto_rv_cornerRadius" />
+        <attr name="leto_rv_strokeWidth" />
+        <attr name="leto_rv_strokeColor" />
+        <attr name="leto_rv_strokePressColor" />
+        <attr name="leto_rv_textColor" />
+        <attr name="leto_rv_textPressColor" />
+        <attr name="leto_rv_isRadiusHalfHeight" />
+        <attr name="leto_rv_isWidthHeightEqual" />
+        <attr name="leto_rv_cornerRadius_TL" />
+        <attr name="leto_rv_cornerRadius_TR" />
+        <attr name="leto_rv_cornerRadius_BL" />
+        <attr name="leto_rv_cornerRadius_BR" />
+    </declare-styleable>
+    <!-- 圆角矩形背景色 -->
+    <attr name="leto_rv_backgroundColor" format="color" />
+    <!-- 圆角矩形背景色press -->
+    <attr name="leto_rv_backgroundPressColor" format="color" />
+    <!-- 圆角弧度,单位dp-->
+    <attr name="leto_rv_cornerRadius" format="dimension" />
+    <!-- 圆角弧度,单位dp-->
+    <attr name="leto_rv_strokeWidth" format="dimension" />
+    <!-- 圆角边框颜色-->
+    <attr name="leto_rv_strokeColor" format="color" />
+    <!-- 圆角边框颜色press -->
+    <attr name="leto_rv_strokePressColor" format="color" />
+    <!-- 文字颜色press-->
+    <attr name="leto_rv_textColor" format="color" />
+    <!-- 文字颜色press-->
+    <attr name="leto_rv_textPressColor" format="color" />
+    <!-- 圆角弧度是高度一半-->
+    <attr name="leto_rv_isRadiusHalfHeight" format="boolean" />
+    <!-- 圆角矩形宽高相等,取较宽高中大值-->
+    <attr name="leto_rv_isWidthHeightEqual" format="boolean" />
+    <!-- 圆角弧度,单位dp,TopLeft-->
+    <attr name="leto_rv_cornerRadius_TL" format="dimension" />
+    <!-- 圆角弧度,单位dp,TopRight-->
+    <attr name="leto_rv_cornerRadius_TR" format="dimension" />
+    <!-- 圆角弧度,单位dp,BottomLeft-->
+    <attr name="leto_rv_cornerRadius_BL" format="dimension" />
+    <!-- 圆角弧度,单位dp,BottomRight-->
+    <attr name="leto_rv_cornerRadius_BR" format="dimension" />
+    <declare-styleable name="Leto_RoundedImageView">
+        <attr format="dimension" name="leto_riv_corner_radius"/>
+        <attr format="dimension" name="leto_riv_corner_radius_top_left"/>
+        <attr format="dimension" name="leto_riv_corner_radius_top_right"/>
+        <attr format="dimension" name="leto_riv_corner_radius_bottom_left"/>
+        <attr format="dimension" name="leto_riv_corner_radius_bottom_right"/>
+        <attr format="dimension" name="leto_riv_border_width"/>
+        <attr format="color" name="leto_riv_border_color"/>
+        <attr format="boolean" name="leto_riv_mutate_background"/>
+        <attr format="boolean" name="leto_riv_oval"/>
+        <attr name="android:scaleType"/>
+        <attr name="leto_riv_tile_mode">
+            <enum name="clamp" value="0"/>
+            <enum name="repeat" value="1"/>
+            <enum name="mirror" value="2"/>
+        </attr>
+        <attr name="leto_riv_tile_mode_x">
+            <enum name="clamp" value="0"/>
+            <enum name="repeat" value="1"/>
+            <enum name="mirror" value="2"/>
+        </attr>
+        <attr name="leto_riv_tile_mode_y">
+            <enum name="clamp" value="0"/>
+            <enum name="repeat" value="1"/>
+            <enum name="mirror" value="2"/>
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="Leto_WidgetRoundTextView">
+        <attr name="leto_wrt_bgColorNormal" format="reference|color" />
+        <attr name="leto_wrt_bgColorSelect" format="reference|color" />
+        <attr name="leto_wrt_jb_radius" format="dimension" />
+        <attr name="leto_wrt_angle" format="integer" />
+        <attr name="leto_wrt_startColor" format="reference|color" />
+        <attr name="leto_wrt_endColor" format="reference|color" />
+        <attr name="leto_wrt_leftTopRadius" format="dimension" />
+        <attr name="leto_wrt_leftBottomRadius" format="dimension" />
+        <attr name="leto_wrt_rightTopRadius" format="dimension" />
+        <attr name="leto_wrt_rightBottomRadius" format="dimension" />
+        <attr name="leto_wrt_halfRadius" format="boolean" />
+        <attr name="leto_wrt_strokeWidth" format="dimension" />
+        <attr name="leto_wrt_strokeColorNormal" format="reference|color" />
+        <attr name="leto_wrt_strokeColorSelect" format="reference|color" />
+    </declare-styleable>
+    <declare-styleable name="Leto_ZzHorizontalProgressBar">
+        <attr name="leto_zpb_padding" format="dimension" />
+        <attr name="leto_zpb_bg_color" format="color|reference" />
+        <attr name="leto_zpb_pb_color" format="color|reference" />
+        <attr name="leto_zpb_second_pb_color" format="color|reference" />
+        <attr name="leto_zpb_max" format="integer" />
+        <attr name="leto_zpb_progress" format="integer" />
+        <attr name="leto_zpb_show_zero_point" format="boolean" />
+        <attr name="leto_zpb_show_second_progress" format="boolean" />
+        <attr name="leto_zpb_second_progress" format="integer" />
+        <attr name="leto_zpb_show_second_point_shape" format="enum">
+            <enum name="point" value="0"/>
+            <enum name="line" value="1"/>
+        </attr>
+        <attr name="leto_zpb_open_gradient" format="boolean" />
+        <attr name="leto_zpb_gradient_from" format="color|reference" />
+        <attr name="leto_zpb_gradient_to" format="color|reference" />
+        <attr name="leto_zpb_open_second_gradient" format="boolean" />
+        <attr name="leto_zpb_second_gradient_from" format="color|reference" />
+        <attr name="leto_zpb_second_gradient_to" format="color|reference" />
+        <attr name="leto_zpb_show_mode" format="enum" >
+            <enum name="round" value="0"/>
+            <enum name="rect" value="1"/>
+            <enum name="round_rect" value="2"/>
+        </attr>
+        <attr name="leto_zpb_round_rect_radius" format="dimension|reference"/>
+        <attr name="leto_zpb_draw_border" format="boolean"/>
+        <attr name="leto_zpb_border_width" format="dimension|reference"/>
+        <attr name="leto_zpb_border_color" format="color|reference"/>
+
+    </declare-styleable>
+
+
+
+    <declare-styleable name="Leto_CountdownView">
+        <attr name="leto_cdv_isHideTimeBackground" format="boolean" />
+        <attr name="leto_cdv_isShowTimeBgDivisionLine" format="boolean" />
+        <attr name="leto_cdv_timeBgDivisionLineColor" format="color" />
+        <attr name="leto_cdv_timeBgDivisionLineSize" format="dimension" />
+        <attr name="leto_cdv_timeBgColor" format="color" />
+        <attr name="leto_cdv_timeBgSize" format="dimension" />
+        <attr name="leto_cdv_timeBgRadius" format="dimension" />
+
+        <attr name="leto_cdv_isTimeTextBold" format="boolean" />
+        <attr name="leto_cdv_timeTextSize" format="dimension" />
+        <attr name="leto_cdv_timeTextColor" format="color" />
+        <attr name="leto_cdv_isShowDay" format="boolean" />
+        <attr name="leto_cdv_isShowHour" format="boolean" />
+        <attr name="leto_cdv_isShowMinute" format="boolean" />
+        <attr name="leto_cdv_isShowSecond" format="boolean" />
+        <attr name="leto_cdv_isShowMillisecond" format="boolean" />
+        <attr name="leto_cdv_isConvertDaysToHours" format="boolean" />
+
+        <attr name="leto_cdv_isSuffixTextBold" format="boolean" />
+        <attr name="leto_cdv_suffixTextSize" format="dimension" />
+        <attr name="leto_cdv_suffixTextColor" format="color" />
+        <attr name="leto_cdv_suffix" format="string" />
+        <attr name="leto_cdv_suffixDay" format="string" />
+        <attr name="leto_cdv_suffixHour" format="string" />
+        <attr name="leto_cdv_suffixMinute" format="string" />
+        <attr name="leto_cdv_suffixSecond" format="string" />
+        <attr name="leto_cdv_suffixMillisecond" format="string" />
+        <attr name="leto_cdv_suffixGravity">
+            <enum name="top" value="0" />
+            <enum name="center" value="1" />
+            <enum name="bottom" value="2" />
+        </attr>
+        <attr name="leto_cdv_suffixLRMargin" format="dimension" />
+        <attr name="leto_cdv_suffixDayLeftMargin" format="dimension" />
+        <attr name="leto_cdv_suffixDayRightMargin" format="dimension" />
+        <attr name="leto_cdv_suffixHourLeftMargin" format="dimension" />
+        <attr name="leto_cdv_suffixHourRightMargin" format="dimension" />
+        <attr name="leto_cdv_suffixMinuteLeftMargin" format="dimension" />
+        <attr name="leto_cdv_suffixMinuteRightMargin" format="dimension" />
+        <attr name="leto_cdv_suffixSecondLeftMargin" format="dimension" />
+        <attr name="leto_cdv_suffixSecondRightMargin" format="dimension" />
+        <attr name="leto_cdv_suffixMillisecondLeftMargin" format="dimension" />
+
+        <attr name="leto_cdv_isShowTimeBgBorder" format="boolean" />
+        <attr name="leto_cdv_timeBgBorderColor" format="color" />
+        <attr name="leto_cdv_timeBgBorderSize" format="dimension" />
+        <attr name="leto_cdv_timeBgBorderRadius" format="dimension" />
+    </declare-styleable>
+
+
+
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color"/>
+        <attr name="roundProgressColor" format="color"/>
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="max" format="integer"></attr>
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="style">
+            <enum name="STROKE" value="0"></enum>
+            <enum name="FILL" value="1"></enum>
+        </attr>
+    </declare-styleable>
+
+</resources>

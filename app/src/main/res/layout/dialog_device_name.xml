@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bluetooth_dialog_open_bg"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:padding="10dp"
+            android:src="@mipmap/dialog_close" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/update_dev_name_title"
+            android:textColor="@color/black"
+            android:textFontWeight="400"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:lineSpacingExtra="4.8sp"
+            android:text="@string/bluetooth_device_list_refresh"
+            android:textColor="#ff3D3D3D"
+            android:textFontWeight="400"
+            android:textSize="16sp"
+            android:visibility="gone"/>
+    </FrameLayout>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="13dp"
+        android:hint="@string/device_name"
+        android:textColor="#8D8D8D"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/login_btn_background"
+        android:gravity="center"
+        android:paddingLeft="124dp"
+        android:paddingRight="124dp"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        android:textSize="16sp" />
+
+</LinearLayout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+    <RelativeLayout
+        android:background="@drawable/leto_rounded_white_bg"
+        android:layout_gravity="center"
+        android:layout_margin="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/dlg_title_view"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/dlg_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:drawablePadding="5dp"
+                android:ellipsize="end"
+                android:gravity="center_horizontal"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:singleLine="true"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                tools:text="标题" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/leto_dlg_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dlg_title_view"
+            android:layout_centerHorizontal="true"
+            android:paddingLeft="20dp"
+            android:paddingTop="35dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:textColor="#333333"
+            android:textSize="18sp" />
+
+        <RelativeLayout
+            android:id="@+id/dlg_btn_view"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:padding="15dp"
+            android:layout_below="@id/leto_dlg_msg"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/leto_line_h"
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_alignParentTop="true"
+                android:visibility="gone"
+                android:background="#dbdbdb" />
+
+            <ImageView
+                android:id="@+id/leto_line_v"
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="#ffffff"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/dlg_left_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toLeftOf="@id/leto_line_v"
+                android:background="@drawable/bg_gray_raduis5"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_margin="10dp"
+                android:text="@string/cancel"
+                android:textColor="#333333"
+                android:textSize="18sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/dlg_right_btn"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/leto_line_v"
+                android:background="@drawable/bg_orange_raduis5"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:layout_margin="10dp"
+                android:text="@string/confirm"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

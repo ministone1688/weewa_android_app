@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FCFCFC"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_include_header" />
+
+    <FrameLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FCFCFC"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="36dp"
+                android:gravity="center_vertical"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:text="@string/info_current_mobile_can_login"
+                android:textColor="@color/text_black"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_mobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="39dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="36dp"
+                android:gravity="center_vertical"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="#ff3D3D3D"
+                android:textFontWeight="700"
+                android:textSize="36sp"
+                tools:text="@string/mobile" />
+
+            <TextView
+                android:id="@+id/btn_loginSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/button_height"
+                android:layout_gravity="center_horizontal|bottom"
+                android:layout_marginTop="57dp"
+                android:background="@drawable/mobile_view_btn"
+                android:gravity="center"
+                android:paddingLeft="124dp"
+                android:paddingRight="124dp"
+                android:text="@string/mobile_btn_update"
+                android:textColor="@color/white"
+                android:visibility="gone"
+                android:textSize="20sp" />
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
+</LinearLayout>

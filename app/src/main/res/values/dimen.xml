@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="common_action_bar_height">78dp</dimen>
+    <dimen name="mgc_sdk_tab_height">55dp</dimen>
+    <dimen name="dialog_margin_top">10dp</dimen>
+    <dimen name="video_corner_dp">10dp</dimen>
+    <dimen name="device_on_off_radius">14dp</dimen>
+
+    <dimen name="button_height">60dp</dimen>
+    <dimen name="dialog_margin_tb">30dp</dimen>
+
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+
+</resources>

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".bluetooth.BlueTestActivity">
+
+    <include layout="@layout/common_include_header" />
+
+    <LinearLayout xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".bluetooth.BlueTestActivity">
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_poweron"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="开机"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_poweroff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="关机"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_restart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="重启"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+        </com.zhy.view.flowlayout.FlowLayout>
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_storage_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="存储信息"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_energe_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="电量信息"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_device_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="设备信息"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_usage_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="获取使用信息"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+        </com.zhy.view.flowlayout.FlowLayout>
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_softap_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="开启热点"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_softap_stop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="关闭热点"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_softap_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="热点是否开启"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_softap_join"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="加入热点"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+        </com.zhy.view.flowlayout.FlowLayout>
+
+
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_netstatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="网络状态"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_wifilist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="wifi list"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_update_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="更换名称"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+
+        </com.zhy.view.flowlayout.FlowLayout>
+
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp">
+
+            <EditText
+                android:id="@+id/et_ssid"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:gravity="center_vertical"
+                android:hint="wifi名称"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+
+                />
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="#CCCECE"
+                android:gravity="center_vertical"
+                android:hint="密码"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_wifi_setup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="#CCCECE"
+                android:gravity="center_vertical"
+                android:text="配置wifi"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+
+        </com.zhy.view.flowlayout.FlowLayout>
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_start_rkipc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="启动rkipc"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_stop_rkipc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="停止rkipc"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_rkipc_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="rkipc状态"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/btn_rkipc_preview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="相机预览"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+
+        </com.zhy.view.flowlayout.FlowLayout>
+
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="登录"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+
+            <Button
+                android:id="@+id/btn_logout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="退出登录"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+
+            <Button
+                android:id="@+id/btn_delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="注销"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+        </com.zhy.view.flowlayout.FlowLayout>
+
+
+
+        <com.zhy.view.flowlayout.FlowLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+
+            <Button
+                android:id="@+id/btn_upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#CCCECE"
+                android:text="上传文件"
+                android:textColor="@android:color/black"
+                android:textSize="12sp" />
+
+        </com.zhy.view.flowlayout.FlowLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:background="@drawable/feedback_edit_bg"
+        android:id="@+id/tv_status"
+        android:textColor="@color/text_black"
+        android:textSize="14sp" />
+</LinearLayout>

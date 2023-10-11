@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/title_bar"
+        layout="@layout/common_include_header" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/title_line" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="36dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="相机热点"
+            android:textColor="#ff3D3D3D"
+            android:textFontWeight="500"
+            android:textSize="20sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <com.xh.hotme.widget.SwitchButtonO
+            android:id="@+id/soft_ap_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_setup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/login_view_edit_bg"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="19dp"
+                android:fontFamily="Source Han Sans CN"
+                android:text="SSID"
+                android:textColor="#ff3D3D3D"
+                android:textFontWeight="400"
+                android:textSize="18sp" />
+
+
+            <EditText
+                android:id="@+id/et_ssid"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="17dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="end|center_vertical"
+                android:hint="@string/soft_ap_hint_input_ssid"
+                android:maxLength="16"
+                android:singleLine="true"
+                android:textColor="@color/login_dialog_edit_text"
+                android:textColorHint="@color/login_dialog_edit_hint"
+                android:textSize="16sp"
+                tools:text="" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/login_view_edit_bg"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="19dp"
+                android:fontFamily="Source Han Sans CN"
+                android:text="密码"
+                android:textColor="#ff3D3D3D"
+                android:textFontWeight="400"
+                android:textSize="18sp" />
+
+
+            <EditText
+                android:id="@+id/et_password"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="17dp"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="end|center_vertical"
+                android:hint="@string/soft_ap_hint_input_password"
+                android:maxLength="16"
+                android:selectAllOnFocus="true"
+                android:singleLine="true"
+                android:textColor="@color/login_dialog_edit_text"
+                android:textColorHint="@color/login_dialog_edit_hint"
+                android:textSize="16sp"
+                tools:text="" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btn_setup"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="34dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/softap_dialog_open_btn"
+            android:gravity="center"
+            android:text="@string/soft_ap_set_up"
+            android:textColor="@color/white"
+            android:textFontWeight="400"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

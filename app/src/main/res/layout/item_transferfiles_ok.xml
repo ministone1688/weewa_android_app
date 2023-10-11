@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:showIn="@layout/activity_transferfiles">
+
+
+    <ImageView
+        android:id="@+id/ivOk"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@mipmap/ic_receive_ok"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="100dp" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="传送完毕"
+        android:textStyle="bold"
+        android:textColor="#ff3D3D3D"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/ivOk"
+        app:layout_constraintStart_toStartOf="@+id/ivOk"
+        app:layout_constraintEnd_toEndOf="@+id/ivOk"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/tvFileSizeOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="文件大小：1.23G"
+        android:textColor="#ff767676"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tv1"
+        app:layout_constraintStart_toStartOf="@+id/tv1"
+        app:layout_constraintTop_toBottomOf="@+id/tv1" />
+
+    <TextView
+        android:id="@+id/tvRateSizeOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="
+传送速率：203MB/S
+"
+        android:textColor="#ff767676"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvFileSizeOk"
+        app:layout_constraintStart_toStartOf="@+id/tvFileSizeOk"
+        app:layout_constraintTop_toBottomOf="@+id/tvFileSizeOk" />
+
+    <TextView
+        android:id="@+id/tvOk"
+        android:layout_width="200dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="170dp"
+        android:background="@drawable/sp_f16c2f_70"
+        android:gravity="center"
+        android:text="好的"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupOK"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="ivOk,tvFileSizeOk,tvRateSizeOk,tvOk,tv1"></androidx.constraintlayout.widget.Group>
+</merge>
