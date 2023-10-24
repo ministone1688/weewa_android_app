@@ -3,6 +3,7 @@ package com.xh.hotme.setting;
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.metrics.Event;
@@ -26,6 +27,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.xh.hotme.R;
 import com.xh.hotme.account.LoginInteract;
 import com.xh.hotme.account.LoginManager;
+import com.xh.hotme.account.MobileLoginActivity;
 import com.xh.hotme.account.MobileViewActivity;
 import com.xh.hotme.account.SetNicknameActivity;
 import com.xh.hotme.account.UserAvatarInteract;
@@ -34,6 +36,8 @@ import com.xh.hotme.bean.UserAvatarBean;
 import com.xh.hotme.bean.UserInfoBean;
 import com.xh.hotme.event.LoginEvent;
 import com.xh.hotme.event.UpdateNameEvent;
+import com.xh.hotme.lay.utils.CameraPhotoDialog;
+import com.xh.hotme.lay.utils.MyToolUtils;
 import com.xh.hotme.listener.ICommonListener;
 import com.xh.hotme.me.holder.CommonViewHolder;
 import com.xh.hotme.utils.AppTrace;
@@ -93,6 +97,7 @@ public class ProfileActivity extends BaseActivity implements ActionSheet.ActionS
     private String _from_camera;
     private String _from_album;
     private String _set_portrait_failed;
+    private Context _ctx;
 
     public static void start(Context context) {
         if (null != context) {
@@ -104,7 +109,6 @@ public class ProfileActivity extends BaseActivity implements ActionSheet.ActionS
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         // set status bar color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             StatusBarUtil.setStatusBarColor(this, ColorUtil.parseColor("#ffffff"));
@@ -140,62 +144,6 @@ public class ProfileActivity extends BaseActivity implements ActionSheet.ActionS
                 return true;
             }
         });
-
-        /*
-        // sign out click
-        _signOutBtn.setOnClickListener(new ClickGuard.GuardedOnClickListener() {
-            @Override
-            public boolean onClicked() {
-
-
-                ModalDialog dialog = new ModalDialog(ProfileActivity.this);
-                dialog.setMessage("确定退出登录吗?");
-                dialog.setLeftButton(getString(R.string.cancel), new ClickGuard.GuardedOnClickListener() {
-                    @Override
-                    public boolean onClicked() {
-                        return true;
-                    }
-                });
-                dialog.setRightButton(getString(R.string.exit), new ClickGuard.GuardedOnClickListener() {
-                    @Override
-                    public boolean onClicked() {
-
-                        LoginInteract.logout(ProfileActivity.this, new ICommonListener() {
-                            @Override
-                            public void onSuccess() {
-                                MainHandler.runOnUIThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        EventBus.getDefault().post(new LoginEvent());
-                                        finish();
-                                    }
-                                });
-                            }
-
-                            @Override
-                            public void onFail(String code, String message) {
-                                MainHandler.runOnUIThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        ToastUtil.s(ProfileActivity.this, message);
-                                    }
-                                });
-                            }
-
-                            @Override
-                            public void onFinish() {
-
-                            }
-                        });
-                        return true;
-                    }
-                });
-
-                dialog.show();
-
-                return true;
-            }
-        }); */
 
         // title
         _titleLabel.setText("个人资料");
@@ -331,12 +279,69 @@ public class ProfileActivity extends BaseActivity implements ActionSheet.ActionS
     }
 
     private void showAvatarPicker() {
-        _actionSheet = ActionSheet.createBuilder(this, getSupportFragmentManager())
+       /* _actionSheet = ActionSheet.createBuilder(this, getSupportFragmentManager())
                 .setCancelButtonTitle(_cancel)
                 .setOtherButtonTitles(_from_camera, _from_album)
                 .setCancelableOnTouchOutside(true)
                 .setListener(this)
-                .show();
+                .show(); */
+        CameraPhotoDialog dialog = new CameraPhotoDialog(ProfileActivity.this);
+        dialog.setCameraBtnClickListener(new ClickGuard.GuardedOnClickListener() {
+            @Override
+            public boolean onClicked() {
+
+                List<String> perms = new ArrayList<>();
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (ContextCompat.checkSelfPermission(ProfileActivity.this,
+                            Manifest.permission.CAMERA) == PackageManager.PERMISSION_DENIED) {
+                        perms.add(Manifest.permission.CAMERA);
+                    }
+                    if (ContextCompat.checkSelfPermission(ProfileActivity.this,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                        perms.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                    }
+                    if (ContextCompat.checkSelfPermission(ProfileActivity.this,
+                            Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                        perms.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+                    }
+                }
+                if (perms.isEmpty()) {
+                    _imagePicker.pickFromCamera("avatar.jpg", 256, 256, true, false, ProfileActivity.this);
+                    dialog.dismiss();
+                } else if (Build.VERSION.SDK_INT >= 23) {
+                    requestPermissions(perms.toArray(new String[0]), REQ_CAMERA_ACCESS);
+                }
+
+
+                return true;
+            }
+        });
+        dialog.setAlbumBtnClickListener(new ClickGuard.GuardedOnClickListener() {
+            @Override
+            public boolean onClicked() {
+
+                List<String> perms = new ArrayList<>();
+                if (Build.VERSION.SDK_INT >= 23) {
+                    if (ContextCompat.checkSelfPermission(ProfileActivity.this,
+                            Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                        perms.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+                    }
+                    if (ContextCompat.checkSelfPermission(ProfileActivity.this,
+                            Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_DENIED) {
+                        perms.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+                    }
+                }
+                if (perms.isEmpty()) {
+                    _imagePicker.pickFromAlbum("avatar.jpg", 256, 256, false, ProfileActivity.this);
+                    dialog.dismiss();
+                } else if (Build.VERSION.SDK_INT >= 23) {
+                    requestPermissions(perms.toArray(new String[0]), REQ_ALBUM_ACCESS);
+                }
+
+                return true;
+            }
+        });
+        dialog.show();
     }
 
 
@@ -366,7 +371,8 @@ public class ProfileActivity extends BaseActivity implements ActionSheet.ActionS
                     }
                 }
                 if (perms.isEmpty()) {
-                    _imagePicker.pickFromCamera("avatar.jpg", 256, 256, true, false, this);
+                   // _imagePicker.pickFromCamera("avatar.jpg", 256, 256, true, false, this);
+                    MyToolUtils.myToast(ProfileActivity.this,"点击了上传",2000);
                 } else if (Build.VERSION.SDK_INT >= 23) {
                     requestPermissions(perms.toArray(new String[0]), REQ_CAMERA_ACCESS);
                 }

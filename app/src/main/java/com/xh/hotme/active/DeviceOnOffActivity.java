@@ -134,7 +134,6 @@ public class DeviceOnOffActivity extends BaseActivity implements IBleDeviceInfoN
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
-
         BluetoothManager.mInstance.sendCmdDeviceInfo();
         BluetoothHandle.addDeviceInfoNotifyListener(this);
     }

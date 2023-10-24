@@ -25,6 +25,7 @@
                 android:layout_height="wrap_content"></TextView>
 
             <LinearLayout
+                android:gravity="center"
                 android:layout_alignParentEnd="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" >
@@ -72,24 +73,26 @@
 
                 <LinearLayout
                     android:id="@+id/btn_photo_open"
-                    android:padding="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:background="@drawable/bg_white_raduis10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                 <ImageView
                     android:src="@mipmap/photo_open"
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"/>
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"/>
 
                 <TextView
                     android:layout_marginLeft="12dp"
                     android:gravity="center"
                     android:textColor="@color/black"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     android:text="远程开机"
                     android:layout_width="wrap_content"
-                    android:layout_height="36dp"/>
+                    android:layout_height="32dp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -102,24 +105,26 @@
 
                 <LinearLayout
                     android:id="@+id/btn_photo_close"
-                    android:padding="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:background="@drawable/bg_white_raduis10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
                         android:src="@mipmap/photo_close"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"/>
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"/>
 
                     <TextView
                         android:layout_marginLeft="12dp"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:text="远程关机"
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"/>
+                        android:layout_height="32dp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -139,24 +144,26 @@
 
                 <LinearLayout
                     android:id="@+id/btn_photo_fastup"
-                    android:padding="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:background="@drawable/bg_white_raduis10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
                         android:src="@mipmap/photo_fastup"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"/>
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"/>
 
                     <TextView
                         android:layout_marginLeft="12dp"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:text="快传二维码"
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"/>
+                        android:layout_height="32dp"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -169,24 +176,26 @@
 
                 <LinearLayout
                     android:id="@+id/btn_photo_unbind"
-                    android:padding="15dp"
+                    android:paddingLeft="15dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
                     android:background="@drawable/bg_white_raduis10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
                     <ImageView
                         android:src="@mipmap/photo_unbind"
-                        android:layout_width="36dp"
-                        android:layout_height="36dp"/>
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"/>
 
                     <TextView
                         android:layout_marginLeft="12dp"
                         android:gravity="center"
                         android:textColor="@color/black"
-                        android:textSize="18sp"
+                        android:textSize="16sp"
                         android:text="解绑设备"
                         android:layout_width="wrap_content"
-                        android:layout_height="36dp"/>
+                        android:layout_height="32dp"/>
 
                 </LinearLayout>
             </LinearLayout>

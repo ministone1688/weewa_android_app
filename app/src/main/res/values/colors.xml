@@ -55,5 +55,7 @@
     <color name="tab_select_orange">#F46A2A</color>
     <color name="gray">#999999</color>
     <color name="red">#f64e4b</color>
+    <!--toast半透明色-->
+    <color name="color_a000">#aa000000</color>
 
 </resources>

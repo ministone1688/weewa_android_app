@@ -112,12 +112,18 @@ public class MeProfileHolder extends CommonViewHolder<MeModuleBean> {
                 }
                 // name
                 String mobile = loginInfo.phone;
-                if (mobile.length() == 11) {
-                    mobile = mobile.substring(0, 3) + "****" + mobile.substring(7);
-                } else {
-                    mobile = mobile.substring(0, 11);
+                String nickName = loginInfo.nickName;
+                if(TextUtils.isEmpty(nickName)){
+                    if (mobile.length() == 11) {
+                        mobile = mobile.substring(0, 3) + "****" + mobile.substring(7);
+                    } else {
+                        mobile = mobile.substring(0, 11);
+                    }
+                    _nameLabel.setText(mobile);
+                }else{
+                    _nameLabel.setText(nickName);
                 }
-                _nameLabel.setText(mobile);
+
             }
         } else {
             // avatar

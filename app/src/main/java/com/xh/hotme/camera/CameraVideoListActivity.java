@@ -25,6 +25,7 @@ import com.xh.hotme.bluetooth.IBleDeviceUsageInfoNotifyListener;
 import com.xh.hotme.bluetooth.IBleVideoListNotifyListener;
 import com.xh.hotme.databinding.ActivityCameraVideoListBinding;
 
+import com.xh.hotme.http.DeviceHttpManager;
 import com.xh.hotme.utils.AppTrace;
 import com.xh.hotme.utils.BaseAppUtil;
 import com.xh.hotme.utils.ClickGuard;
@@ -217,27 +218,27 @@ public class CameraVideoListActivity extends BaseViewActivity<ActivityCameraVide
         BluetoothManager.mInstance.sendCmdVideoList();
 
 
-//        DeviceHttpManager.sendCmdVideoList(new IBleVideoListNotifyListener() {
-//            @Override
-//            public void onVideoList(List<CameraVideoListBean.VideosBean> data) {
-//
-//                if (!BaseAppUtil.isDestroy(CameraVideoListActivity.this)) {
-//                    runOnUiThread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            datas.clear();
-//                            datas.addAll(data);
-//                            adapter.notifyDataSetChanged();
-//                        }
-//                    });
-//                }
-//            }
-//
-//            @Override
-//            public void onVideoListFail(String msg) {
-//                AppTrace.d(TAG, "onVideoListFail: " + msg);
-//            }
-//        });
+        DeviceHttpManager.sendCmdVideoList(new IBleVideoListNotifyListener() {
+            @Override
+            public void onVideoList(List<CameraVideoListBean.VideosBean> data) {
+
+                if (!BaseAppUtil.isDestroy(CameraVideoListActivity.this)) {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            datas.clear();
+                            datas.addAll(data);
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                }
+            }
+
+           @Override
+            public void onVideoListFail(String msg) {
+                AppTrace.d(TAG, "onVideoListFail: " + msg);
+            }
+        });
     }
 
     @Override

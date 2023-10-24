@@ -41,9 +41,7 @@ public class CameraRunningInfoActivity extends BaseViewActivity<ActivityCameraRu
 
 
     DeviceUsageInfo _usageInfo;
-
     Device _device;
-
     Handler _handler;
 
     public static void start(Context ctx) {
@@ -122,7 +120,6 @@ public class CameraRunningInfoActivity extends BaseViewActivity<ActivityCameraRu
         super.onDestroy();
 
         BluetoothHandle.removeDeviceUsageInfoNotifyListener(this);
-
         if (_handler != null) {
             _handler.removeCallbacksAndMessages(null);
         }

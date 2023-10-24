@@ -113,7 +113,6 @@ public class CouldFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void onTabSelect(int position) {
-
         _viewPager.setCurrentItem(position);
     }
 

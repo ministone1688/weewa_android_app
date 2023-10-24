@@ -1,5 +1,9 @@
 package com.xh.hotme.fragment;
 
+import android.annotation.SuppressLint;
+import android.bluetooth.BluetoothAdapter;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -19,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.xh.hotme.MainActivity;
 import com.xh.hotme.R;
 import com.xh.hotme.account.LoginManager;
+import com.xh.hotme.account.MobileLoginActivity;
 import com.xh.hotme.active.ActiveListActivity;
 import com.xh.hotme.base.BaseFragment;
 import com.xh.hotme.bean.BindDeviceBean;
@@ -27,6 +32,7 @@ import com.xh.hotme.bean.DeviceInfo;
 import com.xh.hotme.bean.HomeDataBean;
 import com.xh.hotme.bean.UserInfoBean;
 import com.xh.hotme.bluetooth.BleConstants;
+import com.xh.hotme.bluetooth.BlueTestActivity;
 import com.xh.hotme.bluetooth.BluetoothHandle;
 import com.xh.hotme.bluetooth.BluetoothManager;
 import com.xh.hotme.bluetooth.Device;
@@ -41,11 +47,16 @@ import com.xh.hotme.event.DeviceEvent;
 import com.xh.hotme.event.LoginEvent;
 import com.xh.hotme.event.RemoveDeviceEvent;
 import com.xh.hotme.event.RenameEvent;
+import com.xh.hotme.http.SdkApi;
+import com.xh.hotme.lay.WeburlActivity;
+import com.xh.hotme.lay.utils.MyToolUtils;
+import com.xh.hotme.lay.utils.ToastUtil;
 import com.xh.hotme.utils.AppTrace;
 import com.xh.hotme.utils.BaseAppUtil;
 import com.xh.hotme.utils.Constants;
 import com.xh.hotme.utils.MainHandler;
 import com.xh.hotme.utils.PlayUtil;
+import com.xh.hotme.widget.BluetoothDialog;
 import com.xh.hotme.widget.BluetoothListDialog;
 import com.xh.hotme.widget.BluetoothLoadingDialog;
 import com.xh.hotme.widget.ModalDialog;
@@ -124,7 +135,6 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
         _scanNotifyListener = new IBleScanNotifyListener() {
             @Override
             public void onScanning(boolean isBackground) {
-
                 if (!isBackground) {
                     if (!BaseAppUtil.isDestroy(getActivity()) && BaseAppUtil.isForegroundActivity(getActivity(), getActivity().getClass().getName())) {
                         _bluetoothLoadingDialog = new BluetoothLoadingDialog(getActivity());
@@ -150,19 +160,18 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                         mAdapter.notifyDataSetChanged();
                     }
                 }
+
+				
             }
 
             @Override
             public void onTimeout() {
                 AppTrace.d("扫描超时");
-
                 dismissLoadingDialog();
             }
-
             @Override
             public void onScanEnd() {
                 AppTrace.d("扫描结束");
-
                 dismissLoadingDialog();
             }
         };
@@ -177,7 +186,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             @Override
             public void onConnectSuccess(Device device, int status) {  //
                 AppTrace.d(TAG, "onConnect status=" + status);
-                // ToastUtil.s(getContext(), "连接" + (status == 0 ? "成功" : "失败"));
+                 //ToastUtil.s(getContext(), "连接" + (status == 0 ? "成功" : "失败"));
                 if (_connectDevice == null) {
                     return;
                 }
@@ -210,12 +219,9 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
                                 if (_bleScanRequestListener != null) {
                                     _bleScanRequestListener.onScanStop(status == Constants.DEVICE_STATUS_CONNECT ? 1 : 0);
                                 }
-
                                 mAdapter.notifyDataSetChanged();
-
                                 if (!BaseAppUtil.isDestroy(getActivity()) && BaseAppUtil.isForegroundActivity(getActivity(), MainActivity.class.getName())) {
                                     showLoadingDialog(str_connect_device);
-
                                     BluetoothManager.mInstance.sendCmdDeviceInfo();
                                     _handler.postDelayed(_timeOutRunnable, BluetoothManager.RESP_TIMEOUT);
                                 }
@@ -280,9 +286,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     public void onStop() {
         super.onStop();
         AppTrace.d(TAG, "onStop");
-
         BluetoothHandle.removeConnectNotifyListener(_connectNotifyListener);
-
         BluetoothHandle.removeScanNotifyListener(_scanNotifyListener);
         BluetoothHandle.removeDeviceInfoNotifyListener(this);
     }
@@ -291,13 +295,10 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     @Override
     public void onDestroy() {
         super.onDestroy();
-
-
         if (EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
         }
     }
-
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onRemoveDevice(RemoveDeviceEvent event) {
@@ -413,6 +414,24 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     }
 
     private void loadData() {
+        //进入打开蓝牙设置
+        if (!BluetoothManager.mInstance.enableBlueTooth()) {
+            BluetoothDialog dialog = new BluetoothDialog(getActivity());
+            dialog.setOnClickListener(new DialogInterface.OnClickListener() {
+                @SuppressLint("MissingPermission")
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    if (which == DialogInterface.BUTTON_POSITIVE) {
+                        Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
+                        getActivity().startActivityForResult(enableBtIntent, Constants.REQUEST_CODE_SCAN);
+                    }
+                    dialog.dismiss();
+                }
+            });
+            dialog.show();
+        }
+
+
         if (mDataList == null) {
             mDataList = new ArrayList<>();
         }
@@ -563,12 +582,13 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.iv_add_device:
-
                 ActiveListActivity.start(getActivity());
-
                 break;
             case R.id.tv_camera_tip:
-
+                Intent intent = new Intent(getActivity(), WeburlActivity.class);
+                intent.putExtra("weburl", SdkApi.user_useCamera);
+                intent.putExtra("title",getString(R.string.home_camera_tip));
+                MyToolUtils.goActivity(getActivity(),intent);
                 break;
 
             case R.id.iv_refresh:
@@ -653,7 +673,7 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener, 
             }
             PlayUtil.startPlay(getActivity(), data, _connectDevice);
 
-//            BlueTestActivity.start(getActivity());
+            BlueTestActivity.start(getActivity());
         }
     }
 

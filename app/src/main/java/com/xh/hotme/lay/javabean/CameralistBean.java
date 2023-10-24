@@ -6,13 +6,21 @@ import java.util.List;
 
 public class CameralistBean {
 
-    private List<Lists> lists;
+    private List<Lists> rows;
+    private Integer total;
+
+    public void setLists(Integer total) {
+        this.total = total;
+    }
+    public Integer getTotal() {
+        return total;
+    }
 
     public void setLists(List<Lists> lists) {
-        this.lists = lists;
+        this.rows = lists;
     }
     public List<Lists> getLists() {
-        return lists;
+        return rows;
     }
 
     public class Lists {

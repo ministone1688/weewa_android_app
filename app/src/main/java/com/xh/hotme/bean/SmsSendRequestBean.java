@@ -9,6 +9,7 @@ import androidx.annotation.Keep;
 public class SmsSendRequestBean extends BaseRequestBean {
     public final static String TYPE_BIND="BIND";
     public final static String TYPE_LOGIN="LOGIN";
+    public final static String TYPE_UNBIND="UNBIND";
     public final static String TYPE_UPDATE_PHONE="UPDATE_PHONE";
 
     public String mobile;//	是	STRING	手机号

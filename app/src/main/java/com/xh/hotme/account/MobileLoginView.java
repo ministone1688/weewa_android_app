@@ -82,30 +82,40 @@ public class MobileLoginView extends FrameLayout implements View.OnClickListener
 
     public MobileLoginView(Context context) {
         super(context);
-        setupUI(0);
+        setupUI(0,"");
     }
 
     public MobileLoginView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        setupUI(0);
+        setupUI(0,"");
     }
 
     public MobileLoginView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        setupUI(0);
+        setupUI(0,"");
     }
 
     public MobileLoginView(Context context, int layoutId) {
         super(context);
-        setupUI(layoutId);
+        setupUI(layoutId,"");
     }
 
-    private void setupUI(int layoutId) {
+    public MobileLoginView(Context context, int layoutId,String login_type) {
+        super(context);
+        setupUI(layoutId,login_type);
+    }
+
+    private void setupUI(int layoutId,String login_type) {
+
         loginActivity = (Activity) getContext();
         if (layoutId == 0) {
             layoutId = R.layout.login_include_login_merge;
         }
         LayoutInflater.from(getContext()).inflate(layoutId, this);
+        if(!TextUtils.isEmpty(login_type)){
+            _loginType = login_type;
+        }
+
 
         layout_status = findViewById(R.id.ll_status);
         login_status = findViewById(R.id.login_status);
@@ -232,7 +242,25 @@ public class MobileLoginView extends FrameLayout implements View.OnClickListener
 
                         }
                     });
-                } else if (_loginType.equalsIgnoreCase(Constants.TYPE_UPDATE_PHONE)) {
+                } else if (_loginType.equalsIgnoreCase(Constants.TYPE_UNBIND)) {
+
+                    SendSmsInteract.sendUnbindSMS(loginActivity, mobile, new SendSmsInteract.SendSmsListener() {
+                        @Override
+                        public void onSuccess() {
+                            postSendCodeSuc();
+                        }
+
+                        @Override
+                        public void onFail(String code, String message) {
+                            postSendCodeFail(message);
+                        }
+
+                        @Override
+                        public void onFinish() {
+
+                        }
+                    });
+                }else if (_loginType.equalsIgnoreCase(Constants.TYPE_UPDATE_PHONE)) {
                     SendSmsInteract.sendUpdateMobileSMS(loginActivity, mobile, new SendSmsInteract.SendSmsListener() {
                         @Override
                         public void onSuccess() {

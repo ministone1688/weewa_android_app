@@ -5,6 +5,8 @@ import static com.xh.hotme.utils.DataCleanManager.getTotalCacheSize;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +14,14 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
+import com.tsy.sdk.myokhttp.MyOkHttp;
+import com.tsy.sdk.myokhttp.response.RawResponseHandler;
 import com.xh.hotme.R;
 import com.xh.hotme.account.DeleteUserActivity;
 import com.xh.hotme.account.LoginManager;
@@ -31,6 +38,10 @@ import com.xh.hotme.utils.ColorUtil;
 import com.xh.hotme.utils.DataCleanManager;
 import com.xh.hotme.utils.StatusBarUtil;
 import com.xh.hotme.widget.ModalDialog;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SettingActivity extends BaseActivity {
 	// views
@@ -51,7 +62,7 @@ public class SettingActivity extends BaseActivity {
 	private TextView _cache_num;
 	private TextView _ver_num;
 
-
+	MyOkHttp mMyOkhttp = new MyOkHttp();
 	private UpdateModalDialog _webDialog;
 
 	public static void start(Context context) {
@@ -140,7 +151,7 @@ public class SettingActivity extends BaseActivity {
 				//UserProviteActivity.start(SettingActivity.this, UserProviteActivity.proxy_type_user);
 				Intent intent = new Intent(getApplicationContext(), WeburlActivity.class);
 				intent.putExtra("weburl", SdkApi.user_userproxy);
-				intent.putExtra("title","用户协议");
+				intent.putExtra("title",getString(R.string.user_proment));
 				MyToolUtils.goActivity(SettingActivity.this,intent);
 
 				return true;
@@ -156,7 +167,7 @@ public class SettingActivity extends BaseActivity {
 
 				Intent intent = new Intent(getApplicationContext(), WeburlActivity.class);
 				intent.putExtra("weburl", SdkApi.user_privateurl);
-				intent.putExtra("title","隐私协议");
+				intent.putExtra("title",getString(R.string.user_agreement));
 				MyToolUtils.goActivity(SettingActivity.this,intent);
 
 				return true;
@@ -167,7 +178,7 @@ public class SettingActivity extends BaseActivity {
 		_verUpdate.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				updateDialog("版本更新");
+				updateDialog("版本升级");
 			}
 		});
 
@@ -221,5 +232,27 @@ public class SettingActivity extends BaseActivity {
 		});
 		_webDialog.show();
 	}
+
+	private void getVerNum(){
+		Map<String, String> params = new HashMap<>();
+		params.put("version", MyToolUtils.getAppVersionName(getApplicationContext()));
+		mMyOkhttp.get()
+				.url(SdkApi.upgrade).params(params).tag(this)
+				.enqueue(new RawResponseHandler() {
+					@Override
+					public void onSuccess(int statusCode, String result) {
+						HashMap<String, String> mapRes = JSON.parseObject(result, new TypeReference<HashMap<String, String>>() {});
+						System.out.println("-------------------------------------"+mapRes);
+						if (mapRes.get("code").equals(200)) {
+
+						}
+					}
+					@Override
+					public void onFailure(int statusCode, String error_msg) {
+						//Log.d(TAG, "doPost onFailure:" + error_msg);
+					}
+				});
+	}
+
 
 }

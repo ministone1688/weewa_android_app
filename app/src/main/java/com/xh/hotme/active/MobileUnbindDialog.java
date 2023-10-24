@@ -92,7 +92,7 @@ public class MobileUnbindDialog extends Dialog implements IBleUnbindListener {
         });
 
         // add mobile login view
-        _loginView = new MobileLoginView(context, R.layout.login_layout_mobile_view);
+        _loginView = new MobileLoginView(context, R.layout.login_layout_mobile_view,Constants.TYPE_UNBIND);
         _loginView.findViewById(R.id.tv_login_tip).setVisibility(View.GONE);
         _loginView.setLoginType(Constants.TYPE_UNBIND);
         _loginView.setMac(mac);

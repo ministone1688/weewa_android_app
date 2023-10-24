@@ -58,6 +58,7 @@ import com.xh.hotme.bluetooth.BluetoothManager;
 import com.xh.hotme.bluetooth.Device;
 import com.xh.hotme.bluetooth.IBleDeviceUsageInfoNotifyListener;
 import com.xh.hotme.bluetooth.IBleSoftApNotifyListener;
+import com.xh.hotme.lay.utils.MyToolUtils;
 import com.xh.hotme.softap.WifiManager;
 import com.xh.hotme.utils.AppTrace;
 import com.xh.hotme.utils.BaseAppUtil;
@@ -367,6 +368,7 @@ public class IjkPlayerActivity extends BaseActivity implements IPlayControlListe
                 if (isRecord) {
                     showExitRecordDialog();
                 } else {
+                    MyToolUtils.myToast(IjkPlayerActivity.this,"确认退出？");
                     if (_wifiInfo != null) {
                         mWifiManager.disconnectNetWork();
                     }

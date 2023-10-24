@@ -273,5 +273,8 @@
     <string name="btn_confirm">确定</string>
     <string name="out_sys_mg">是否退出登录</string>
     <string name="update_txt">立即更新</string>
+    <string name="user_proment">用户协议</string>
+    <string name="user_agreement">隐私政策</string>
+    <string name="sys_error">系统繁忙请稍后再试</string>
 
 </resources>

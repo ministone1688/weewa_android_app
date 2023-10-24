@@ -29,7 +29,6 @@ public class NicknameInteract {
         }
 
         String url = SdkApi.setNickName() + "?nickName=" + nickName;
-
         OkHttpUtil.put(url, null, new OkHttpCallbackDecode<Object>() {
             @Override
             public void onDataSuccess(Object data) {

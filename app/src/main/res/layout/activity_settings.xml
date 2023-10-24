@@ -143,7 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:text="隐私协议"
+                    android:text="隐私政策"
                     android:textColor="@color/text_black"
                     android:textSize="16sp" />
 

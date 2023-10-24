@@ -1057,7 +1057,6 @@ public class BluetoothManager {
             return false;
         }
         boolean result = mBluetoothGattManager.sendCmdRecordStart(mBluetoothGatt, info);
-
         return result;
     }
 
@@ -1200,7 +1199,6 @@ public class BluetoothManager {
         for (BindDeviceBean device : _bindDeviceList) {
             if (device != null && !TextUtils.isEmpty(device.bluetoothUuid) && device.bluetoothUuid.equalsIgnoreCase(address)) {
                 device.deviceName = deviceName;
-
                 if (device.blueDevice != null) {
                     device.blueDevice.setName(deviceName);
                 }
@@ -1267,7 +1265,6 @@ public class BluetoothManager {
     }
 
     public static String getRealFileImageUrl(String path) {
-
         return ConnectLogic.getInstance().getConnectBaseurl() + "/file?p=" + path;
     }
 

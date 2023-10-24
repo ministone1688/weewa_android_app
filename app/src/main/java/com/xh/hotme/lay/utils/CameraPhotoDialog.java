@@ -1,59 +1,145 @@
 package com.xh.hotme.lay.utils;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.os.Bundle;
-import android.util.DisplayMetrics;
+import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.JavascriptInterface;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
+import com.just.agentweb.AgentWeb;
+import com.just.agentweb.DefaultWebClient;
+import com.just.agentweb.WebChromeClient;
+import com.just.agentweb.WebViewClient;
 import com.xh.hotme.R;
+import com.xh.hotme.account.LoginInteract;
+import com.xh.hotme.account.LoginViewCallback;
+import com.xh.hotme.account.MobileLoginView;
+import com.xh.hotme.bean.LoginResultBean;
+import com.xh.hotme.bluetooth.BluetoothHandle;
+import com.xh.hotme.bluetooth.BluetoothManager;
+import com.xh.hotme.bluetooth.IBleUnbindListener;
+import com.xh.hotme.event.RemoveDeviceEvent;
+import com.xh.hotme.lay.WebUrlView;
+import com.xh.hotme.lay.WeburlActivity;
+import com.xh.hotme.utils.ClickGuard;
+import com.xh.hotme.utils.Constants;
+import com.xh.hotme.utils.DensityUtil;
+import com.xh.hotme.utils.DeviceInfo;
+import com.xh.hotme.utils.MainHandler;
+import com.xh.hotme.utils.ToastUtil;
 
-public abstract class CameraPhotoDialog extends Dialog implements View.OnClickListener {
-    private Context context;
+import org.greenrobot.eventbus.EventBus;
 
-    public CameraPhotoDialog(@NonNull Context context) {
-        super(context, R.style.hotme_modal_dialog_ly);//内容样式在这里引入
+@Keep
+public class CameraPhotoDialog extends Dialog {
+    // views
+    private LinearLayout _dialog_close;
 
-        this.context = context;
-    }
+    // listener
+    private OnClickListener _listener;
+    Context _context;
 
-    public CameraPhotoDialog(@NonNull Context context, int themeResId) {
-        super(context, themeResId);
-    }
+    Handler _handler;
+    TextView _from_camera,_from_album;
 
-    protected CameraPhotoDialog(@NonNull Context context, boolean cancelable, @Nullable OnCancelListener cancelListener) {
-        super(context, cancelable, cancelListener);
+    private View.OnClickListener cameraBtnClickListener;
+    private View.OnClickListener albumBtnClickListener;
+    private View.OnClickListener cancleBtnClickListener;
+
+    public CameraPhotoDialog(@NonNull final Context context) {
+        super(context, R.style.hotme_modal_dialog);
+        _context = context;
+        _handler = new Handler() ;
+
+        // load content view
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.dialog_camrea_photo, null);
+        // views
+        _dialog_close = view.findViewById(R.id.dialog_close);
+        _dialog_close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cancleBtnClickListener != null) {
+                    cancleBtnClickListener.onClick(v);
+                }
+                dismiss();
+            }
+        });
+
+        _from_camera = view.findViewById(R.id.from_camera);
+        _from_camera.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (cameraBtnClickListener != null) {
+                    cameraBtnClickListener.onClick(v);
+                }
+                dismiss();
+            }
+        });
+        _from_album = view.findViewById(R.id.from_album);
+        _from_album.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (albumBtnClickListener != null) {
+                    albumBtnClickListener.onClick(v);
+                }
+                dismiss();
+            }
+        });
+
+        setContentView(view);
+        setCancelable(false);
+        setCanceledOnTouchOutside(false);
+
+        Window window = getWindow();
+        window.setGravity(Gravity.BOTTOM);
+        WindowManager.LayoutParams windowparams = window.getAttributes();
+        windowparams.width = (int)(DeviceInfo.getWidth(context) * 1.0);
+        //float topHeight = getContext().getResources().getDimension(R.dimen.dialog_margin_tb);
+        // windowparams.height = (int) (DeviceInfo.getHeight(context) - DensityUtil.dip2px(context, topHeight));
+        //设置img
+       // Integer width = (int)(DeviceInfo.getWidth(context) * 0.8);
+       // _top_img.getLayoutParams().width = width;
+       // _top_img.getLayoutParams().height = (int)(width * 0.38);
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.dialog_camrea_photo);
-
-        //tv_title = findViewById(R.id.tv_title);
-
-        Window dialogWindow = getWindow();
-        WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-        DisplayMetrics d = context.getResources().getDisplayMetrics(); // 获取屏幕宽、高用
-        lp.width = (int) (d.widthPixels * 0.9); // 宽度设置为屏幕宽度的80%
-        //lp.dimAmount=0.0f;//外围遮罩透明度0.0f-1.0f
-        dialogWindow.setAttributes(lp);
-        dialogWindow.setGravity(Gravity.BOTTOM);//内围区域底部显示
-
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
     }
 
     @Override
-    public void onClick(View view) {
-        int i = view.getId();
-
+    public void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
     }
 
-    protected abstract void confirm();
+
+    public void setCameraBtnClickListener(View.OnClickListener listener) {
+        cameraBtnClickListener = listener;
+    }
+
+    public void setAlbumBtnClickListener(View.OnClickListener listener) {
+        albumBtnClickListener = listener;
+    }
+    public void setCancleBtnClickListener(View.OnClickListener listener) {
+        cameraBtnClickListener = listener;
+    }
+
 }

@@ -40,6 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/push_address"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:background="@color/white"
@@ -65,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <EditText
+                android:id="@+id/push_key"
                 android:background="@color/white"
                 android:hint="@string/ly_push_mishi"
                 android:textSize="@dimen/sp16"

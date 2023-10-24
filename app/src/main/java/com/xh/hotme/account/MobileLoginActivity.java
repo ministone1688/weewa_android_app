@@ -111,6 +111,7 @@ public class MobileLoginActivity extends BaseViewActivity<ActivityMobileLoginBin
 
                 Intent intent = new Intent(getApplicationContext(), WeburlActivity.class);
                 intent.putExtra("weburl", SdkApi.user_userproxy);
+                intent.putExtra("title",getString(R.string.user_proment));
                 MyToolUtils.goActivity(MobileLoginActivity.this,intent);
 
                 return true;
@@ -122,8 +123,8 @@ public class MobileLoginActivity extends BaseViewActivity<ActivityMobileLoginBin
                 // DialogUtil.showAgreement(MobileLoginActivity.this, "privacy.html");
                 Intent intent = new Intent(getApplicationContext(), WeburlActivity.class);
                 intent.putExtra("weburl", SdkApi.user_privateurl);
+                intent.putExtra("title",getString(R.string.user_agreement));
                 MyToolUtils.goActivity(MobileLoginActivity.this,intent);
-
                 return true;
             }
         });
@@ -188,8 +189,7 @@ public class MobileLoginActivity extends BaseViewActivity<ActivityMobileLoginBin
         UserInfoInteract.getUserInfo(MobileLoginActivity.this, new UserInfoInteract.UserInfoListener() {
             @Override
             public void onSuccess(UserInfoBean data) {
-//                LoginManager.saveLoginInfo(MobileLoginActivity.this, data);
-
+                LoginManager.saveLoginInfo(MobileLoginActivity.this, data);
                 EventBus.getDefault().post(new LoginEvent());
             }
 

@@ -23,6 +23,10 @@ public class SendSmsInteract {
         sendSMS(context, account, Constants.TYPE_LOGIN, onSendSmsListener);
     }
 
+    public static void sendUnbindSMS(Context context, String account, final SendSmsListener onSendSmsListener) {
+        sendSMS(context, account, Constants.TYPE_UNBIND, onSendSmsListener);
+    }
+
 
     public static void sendUpdateMobileSMS(Context context, String account, final SendSmsListener onSendSmsListener) {
         sendSMS(context, account, Constants.TYPE_UPDATE_PHONE, onSendSmsListener);

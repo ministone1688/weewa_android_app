@@ -97,13 +97,11 @@ public class WeburlActivity extends BaseActivity {
         @Override
         public void onReceivedTitle(WebView view, String title) {
             super.onReceivedTitle(view, title);
-            if(!TextUtil.isNullOrEmpty(title) && !title.contains("http")){
+            if(!TextUtil.isNullOrEmpty(title) && title.indexOf("http")==-1){
                 titleView.setText(title);
             }
-
         }
     };
-
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

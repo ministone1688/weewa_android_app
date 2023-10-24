@@ -30,8 +30,6 @@ public class MeFragment extends BaseFragment {
     private SwipeRefreshLayout _refreshLayout;
     View _rootView;
 
-
-
     ViewGroup _adContainer;
 
     MeHomeAdapter _meHomeAdapter;
@@ -117,12 +115,12 @@ public class MeFragment extends BaseFragment {
     @Override
     public void onResume() {
         super.onResume();
+        _meHomeAdapter.notifyDataSetChanged();
     }
 
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
-
         // update
 //        if(!hidden && isLoginInfoUpdated(_loginInfoVersion)) {
 //            _meHomeAdapter.notifyDataSetChanged();

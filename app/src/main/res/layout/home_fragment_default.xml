@@ -64,12 +64,59 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="400dp"
         android:clipToPadding="false"
         android:paddingLeft="20dp"
         android:paddingTop="2dp"
         android:paddingRight="20dp"
-        android:paddingBottom="50dp" />
+        android:paddingBottom="5dp" />
+
+    <LinearLayout
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="精彩视频"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:layout_marginTop="2dp"
+                android:text="进入"
+                android:layout_alignParentRight="true"
+                android:textColor="@color/text_black_CC"
+                android:textSize="14sp"
+                android:layout_marginRight="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <ImageView
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:src="@mipmap/right_jt"
+                android:layout_width="16dp"
+                android:layout_height="16dp"/>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/top_recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:paddingBottom="50dp" />
+
+    </LinearLayout>
 
 
 </LinearLayout>

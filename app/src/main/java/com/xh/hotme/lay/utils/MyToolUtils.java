@@ -1,16 +1,24 @@
 package com.xh.hotme.lay.utils;
 
+import static com.umeng.commonsdk.stateless.UMSLEnvelopeBuild.mContext;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -186,6 +194,23 @@ public class MyToolUtils {
         editText.setFocusableInTouchMode(true);
         editText.requestFocus();
         context.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
+    }
+
+    public static void myToast(Context context, String str){
+        Toast toast = Toast.makeText(context, str, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL , 0, 0);  //设置显示位置
+        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+        v.setPadding(10,10,10,10);
+        v.setTextColor(Color.WHITE);     //设置字体颜色
+        toast.show();
+    }
+    public static void myToast(Context context, String str, int showTime){
+        Toast toast = Toast.makeText(context, str, showTime);
+        toast.setGravity(Gravity.CENTER_VERTICAL|Gravity.CENTER_HORIZONTAL , 0, 0);  //设置显示位置
+        TextView v = (TextView) toast.getView().findViewById(android.R.id.message);
+        v.setPadding(30,50,30,50);
+        v.setTextColor(Color.WHITE);     //设置字体颜色
+        toast.show();
     }
 
 }

@@ -426,7 +426,7 @@ public class ActionSheet extends Fragment implements View.OnClickListener {
             this.otherButtonSingleBackground = gray;
             this.cancelButtonTextColor = Color.WHITE;
             this.otherButtonTextColor = Color.BLACK;
-            this.padding = dp2px(20);
+            this.padding = dp2px(0);
             this.otherButtonSpacing = dp2px(2);
             this.cancelButtonMarginTop = dp2px(10);
             this.actionSheetTextSize = dp2px(16);

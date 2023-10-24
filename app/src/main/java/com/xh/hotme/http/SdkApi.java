@@ -92,7 +92,6 @@ public class SdkApi {
         return getRequestUrl() + endpoints_user_delete;
     }
 
-
     //用户收到绑定验证码之后向服务端发送校验验证码请求，并且获取设备mac地址
     public static String checkDeviceSmsCode() {
         return getRequestUrl() + endpoints_check_sms_code;
@@ -134,6 +133,14 @@ public class SdkApi {
     public static final String user_privateurl = getRequestUrl() + "/hotme-api/app/privateurl";
 	 //如何获取推流地址
     public static final String user_pushUrl = getRequestUrl() + "/hotme-api/app/getPushUrl";
+    //如何使用热我
+    public static final String user_useCamera = getRequestUrl() + "/hotme-api/app/getPushUrl";
+    //最新版本
+    public static final String upgrade = getRequestUrl() + "/hotme-api/app/upgrade";
+    //获取直播推流信息
+    public static final String getPushAddress = getRequestUrl() + "/hotme-api/hm/deviceLive/getPushAddress";
+    //保存推流地址
+    public static final String savePushAddress = getRequestUrl() + "/hotme-api/hm/deviceLive/savePushAddress";
 
 
 }

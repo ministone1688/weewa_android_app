@@ -61,6 +61,7 @@ import com.xh.hotme.event.DeviceStorageInfoEvent;
 import com.xh.hotme.event.DeviceUsageInfoEvent;
 import com.xh.hotme.event.RenameEvent;
 import com.xh.hotme.event.RkIpcEvent;
+import com.xh.hotme.lay.utils.MyToolUtils;
 import com.xh.hotme.softap.CameraSoftApActivity;
 import com.xh.hotme.softap.WifiManager;
 import com.xh.hotme.utils.AppTrace;
@@ -99,7 +100,7 @@ public class PlayerActivity extends BaseActivity implements IPlayControlListener
     LinearLayout _localLayout, _settingLayout;
     TextView _exitBtn;
     TextView _indicatorView;
-    TextView _storageTv, _energyTv;
+    TextView _storageTv, _energyTv,_tv_title;
 
     ImageView _fullView;
 
@@ -392,6 +393,9 @@ public class PlayerActivity extends BaseActivity implements IPlayControlListener
         _storageTv = findViewById(R.id.tv_storage_info);
         _energyTv = findViewById(R.id.tv_energy);
 
+        _tv_title = findViewById(R.id.tv_title);
+        _tv_title.setText(_deviceInfo.device_name);
+
         _fullView = _playerView.findViewById(R.id.exo_max_btn);
         _fullView.setOnClickListener(new ClickGuard.GuardedOnClickListener() {
             @Override
@@ -413,6 +417,8 @@ public class PlayerActivity extends BaseActivity implements IPlayControlListener
             @Override
             public boolean onClicked() {
 
+                showExitRecordModeDialog();
+/*
                 if (isRecord) {
                     showExitRecordModeDialog();
                 } else {
@@ -421,7 +427,7 @@ public class PlayerActivity extends BaseActivity implements IPlayControlListener
                     }
                     _wifiInfo = null;
                     finish();
-                }
+                }*/
                 return true;
             }
         });
@@ -457,6 +463,7 @@ public class PlayerActivity extends BaseActivity implements IPlayControlListener
         _playerButton.setOnClickListener(new ClickGuard.GuardedOnClickListener() {
             @Override
             public boolean onClicked() {
+
 
                 if (isConnectedSoftAp()) {
                     if (!isRecord) {

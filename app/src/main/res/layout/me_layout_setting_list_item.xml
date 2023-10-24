@@ -9,12 +9,12 @@
     <LinearLayout
         android:id="@+id/setting_item"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="54dp"
         android:orientation="horizontal"
         android:paddingLeft="24dp"
-        android:paddingTop="17dp"
+        android:paddingTop="15dp"
         android:paddingRight="24dp"
-        android:paddingBottom="18dp">
+        android:paddingBottom="15dp">
 
 
         <ImageView
